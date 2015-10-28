@@ -21,13 +21,7 @@
 ##############################################################################
 from openerp.osv import osv
 from openerp.report import report_sxw
-import barcode
-from barcode.writer import ImageWriter
-import base64
 from openerp.osv.orm import browse_record
-import utils
-import cairosvg
-import tempfile
 
 class report_dynamic_label(report_sxw.rml_parse):
             
