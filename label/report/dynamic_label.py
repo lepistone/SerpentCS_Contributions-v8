@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2012 Serpent Consulting Services (<http://www.serpentcs.com>)
+#   Copyright (C) 2012 Serpent Consulting Services (<http://www.serpentcs.com>)
 #    Copyright (C) 2004-2010 OpenERP SA (<http://www.openerp.com>)
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -71,13 +71,24 @@ class report_dynamic_label(report_sxw.rml_parse):
                             bot = False
                         else:
                             bot = True
-                            bot_dict = {'string': string, 'value':  value, 'type': field.type,
-                                        'newline': field.newline, 'style': "font-size:" + str(field.fontsize) + "px;" + pos}
+                            bot_dict = {
+                                'string': string,
+                                'value':  value,
+                                'type': field.type,
+                                'newline': field.newline,
+                                'style': "font-size:"
+                                + str(field.fontsize) + "px;" + pos
+                            }
                     else:
                         bot = False
                     if not bot:
-                        vals_dict = {'string': string, 'value':  value, 'type': field.type,
-                                     'newline': field.newline, 'style': "font-size:" + str(field.fontsize) + "px;" + pos}
+                        vals_dict = {
+                            'string': string,
+                            'value':  value,
+                            'type': field.type,
+                            'newline': field.newline,
+                            'style': "font-size:"
+                            + str(field.fontsize) + "px;" + pos}
                         vals.append(vals_dict)
                 if bot_dict != {}:
                     vals.append(bot_dict)
@@ -154,5 +165,3 @@ class report_employee(osv.AbstractModel):
     _inherit = 'report.abstract_report'
     _template = 'label.report_label'
     _wrapped_report_class = report_dynamic_label
-
-#report_sxw.report_sxw('report.dynamic.label','label.config','addons/label/report/dynamic_label.mako',parser=report_dynamic_label, header=False)
